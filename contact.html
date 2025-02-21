@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <!-- Google tag (gtag.js) -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-K04YFZH9FD"></script>
+      <script>
+         window.dataLayer = window.dataLayer || [];
+         function gtag(){dataLayer.push(arguments);}
+         gtag('js', new Date());
+         
+         gtag('config', 'G-K04YFZH9FD',{'debug_mode':true});
+
+         // Track button clicks
+         function trackButtonClick(event) {
+            gtag('event', 'button_clicked', {
+               'event_category': 'button',
+               'event_label': event.target.innerText
+            });
+         }
+
+         // Track form submissions
+         function trackFormSubmit(event) {
+            gtag('event', 'form_submitted', {
+               'event_category': 'form',
+               'event_label': 'contact_form'
+            });
+         }
+
+         // Add event listeners
+         document.addEventListener('DOMContentLoaded', function() {
+            // Track all buttons
+            document.querySelectorAll('input[type="button"]').forEach(button => {
+               button.addEventListener('click', trackButtonClick);
+            });
+
+            // Track the contact form submission
+            document.querySelector('form').addEventListener('submit', trackFormSubmit);
+         });
+      </script>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <title>Contact | Responsive Blog Website</title>
+      <link rel="stylesheet" href="style.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+   </head>
+   <body>
+      
+      <header>
+         <div class="container container-nav">
+            <div class="site-title">
+               <h1>Contact Us</h1>
+            </div>
+            <nav>
+               <ul>
+                  <li><a href="index.html">Home</a></li>
+                  <li><a href="about1.html">About me</a></li>
+                  <li><a href="contact.html" class="current-page">Contact</a></li>
+               </ul>
+            </nav>
+         </div>
+      </header>
+      
+      <div class="container container-flex">
+         
+         <main role="main">
+            
+            <h2>Contact Us</h2>
+            <form id="contact_form">
+                <label for="name">Name:</label><br>
+                <input type="text" id="name" name="name"><br>
+                <label for="email">Email:</label><br>
+                <input type="email" id="email" name="email"><br><br>
+                <input type="button" value="Submit" onclick="alert('Thank you for contacting us!')">
+            </form>
+            
+         </main>
+         
+      </div>
+      
+      <footer>
+         <p><strong>Living the simple life</strong></p>
+         <p>Copyright &copy; 2022</p>
+         <p>Made with <i class="fas fa-heart"></i> By Kru'Z&trade;</p>
+      </footer>
+   </body>
+</html>
